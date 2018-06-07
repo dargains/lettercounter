@@ -1,0 +1,21 @@
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f4f4f4;
+  margin: 10px;
+  font-family: sans-serif;
+}
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px lightgray;
+}
+textarea {
+  width: 100%;
+  padding: 10px;
+}
