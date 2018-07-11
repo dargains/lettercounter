@@ -1,21 +1,79 @@
+:root {
+  --primaryColor: red;
+  --secondaryColor: yellow;
+
+  --neu01: #FFFFFF;
+  --neu02: #F4F4F4;
+  --neu03: #EBEBEB;
+  --neu04: #CCCCCC;
+  --neu05: #AFAFAF;
+  --neu06: #999999;
+  --neu07: #666666;
+  --neu08: #4A4D4E;
+  --neu09: #333333;
+  --neu10: #000000;
+}
 * {
   position: relative;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline-color: transparent;
 }
 body {
-  background-color: #f4f4f4;
-  margin: 10px;
+  margin: 0;
   font-family: sans-serif;
 }
 main {
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
   padding: 30px;
-  background-color: #fff;
-  box-shadow: 2px 2px 10px lightgray;
+}
+.textarea {
+  box-shadow: 5px 5px 50px 10px rgba(0,0,0,.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.textarea button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: 0;
+  padding: 20px;
+  cursor: pointer;
+}
+.textarea button:first-of-type {
+  right: 50px;
+  background-color: var(--neu01);
+}
+.textarea button:last-of-type {
+  background-color: var(--primaryColor);
+  color: var(--neu01);
 }
 textarea {
   width: 100%;
   padding: 10px;
+  border: 0;
+  background-color: rgba(var(--neu01),.8);
+  resize: none;
+}
+.leftContainer {
+  background-color: var(--neu01);
+}
+.title {
+  color: var(--primaryColor);
+}
+.about {
+}
+.subtitle {
+  color: var(--primaryColor);
+}
+.aboutText {
+  color: var(--neu07);
+}
+.rightContainer {
+
+}
+.authors {
+
 }
