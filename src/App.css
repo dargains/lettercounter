@@ -1,6 +1,6 @@
 :root {
-  --primaryColor: red;
-  --secondaryColor: yellow;
+  --primaryColor: #ffc9a1;
+  --secondaryColor: #ff8bb3;
 
   --neu01: #FFFFFF;
   --neu02: #F4F4F4;
@@ -19,36 +19,94 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -moz-tap-highlight-color: rgba(0, 0, 0, 0);
   outline-color: transparent;
+  font-family: 'Roboto';
+}
+::selection {
+  background: var(--primaryColor);
+  color: var(--neu01);
+}
+h1, h2 {
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 14px;
+  color: var(--neu01);
+  opacity: .6;
+  margin: 5px 0;
 }
 body {
   margin: 0;
-  font-family: sans-serif;
 }
 main {
   width: 100%;
   padding: 30px;
+  height: 100vh;
+}
+.leftContainer {
+  width: 50%;
+  height: 100vh;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--neu01);
+}
+.rightContainer {
+  width: 50%;
+  height: 100vh;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(147deg, var(--primaryColor), var(--secondaryColor));
+}
+.wrapper {
+  z-index: 2;
+  height: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.logo {
+  max-width: 120px;
 }
 .textarea {
+  top: 100px;
   box-shadow: 5px 5px 50px 10px rgba(0,0,0,.1);
   width: 100%;
-  max-width: 600px;
+  height: 372px;
+  max-width: 60%;
   margin: 0 auto;
+  background-color: var(--neu01);
+}
+.textarea textarea {
+  height: 280px;
+  width: 100%;
+  padding: 40px 25px;
+  color: var(--neu06);
+  font-size: 18px;
+  line-height: 24px;
 }
 .textarea button {
   position: absolute;
   bottom: 0;
-  right: 0;
   border: 0;
-  padding: 20px;
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
 }
 .textarea button:first-of-type {
-  right: 50px;
+  right: 120px;
   background-color: var(--neu01);
+  padding: 20px;
 }
 .textarea button:last-of-type {
+  right: 0;
   background-color: var(--primaryColor);
   color: var(--neu01);
+  width: 120px;
+  line-height: 90px;
 }
 textarea {
   width: 100%;
@@ -57,23 +115,67 @@ textarea {
   background-color: rgba(var(--neu01),.8);
   resize: none;
 }
-.leftContainer {
-  background-color: var(--neu01);
+.about {
+  max-width: 330px;
+  text-align: right;
+  position: absolute;
+  bottom: 230px;
+  left: 0;
 }
 .title {
   color: var(--primaryColor);
-}
-.about {
-}
-.subtitle {
-  color: var(--primaryColor);
+  font-size: 14px;
 }
 .aboutText {
-  color: var(--neu07);
+  color: var(--neu06);
+  font-size: 18px;
+  margin: 5px 0;
 }
-.rightContainer {
-
+.presets {
+  max-width: 130px;
+  position: absolute;
+  top: 120px;
+  right: 0;
 }
-.authors {
-
+.presets button {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2px solid var(--neu01);
+  color: var(--neu01);
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: .6;
+  transition: all .1s ease-in;
+}
+.presets button:hover,
+.presets button.selected {
+  background-color: var(--neu01);
+  opacity: 1;
+  color: var(--secondaryColor);
+}
+.presets button:nth-child(2n) {
+  margin-right: 20px;
+}
+.letters,
+.words {
+  width: 150px;
+  position: absolute;
+  bottom: 200px;
+}
+.letters {
+  right: 170px;
+}
+.words {
+  right: 0;
+}
+.letters p,
+.words p {
+  font-size: 72px;
+  color: var(--neu01);
+  margin: 0;
+  font-weight: bold;
 }

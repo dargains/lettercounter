@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import bin from './img/bin.svg';
+import logoS from './img/logoSimple.png';
+import logoC from './img/logo.png';
 
 class App extends Component {
 
@@ -47,34 +50,42 @@ class App extends Component {
     const wordCount = this.state.words;
     return (
       <main>
-        <div className="leftContainer">
-          <h1 className="title">Letter Counter</h1>
+        <div className="leftContainer"></div>
+        <div className="rightContainer"></div>
+        <div className="wrapper">
+          <img className="logo" src={logoC} alt="lettercounter"/>
           <div className="about">
-            <h2 className="subtitle">Letter Counter</h2>
+            <h1 className="title">Letter Counter</h1>
             <p className="aboutText">Developed by Dargains, Foan82 & Vilaça</p>
             <p className="aboutText">just to make your day better</p>
           </div>
+          <div className="textarea">
+            <textarea ref="textarea" onChange={this.onChange} onDoubleClick={this.onClear} value={this.state.text}/>
+            <button onClick={this.onClear}><img src={bin} alt="clear" /></button>
+            <button onClick={this.onCopy}>copy</button>
+          </div>
+          <div className="presets">
+            <h2>Presets</h2>
+            <button onClick={this.insertLorem.bind(this, 16)}>16</button>
+            <button onClick={this.insertLorem.bind(this, 24)}>24</button>
+            <button onClick={this.insertLorem.bind(this, 32)}>32</button>
+            <button onClick={this.insertLorem.bind(this, 48)}>48</button>
+            <button onClick={this.insertLorem.bind(this, 64)}>64</button>
+            <button onClick={this.insertLorem.bind(this, 95)}>95</button>
+            <button onClick={this.insertLorem.bind(this, 128)}>128</button>
+            <button onClick={this.insertLorem.bind(this, 192)}>192</button>
+            <button onClick={this.insertLorem.bind(this, 256)}>256</button>
+            <button onClick={this.insertLorem.bind(this, 512)}>512</button>
+          </div>
+          <div className="letters">
+            <h2>Letters: </h2>
+            <p ref="letterCount">{letterCount}</p>
+          </div>
+          <div className="words">
+            <h2>Words: </h2>
+            <p ref="wordCount">{wordCount}</p>
+          </div>
         </div>
-        <div className="textarea">
-          <textarea ref="textarea" onChange={this.onChange} onDoubleClick={this.onClear} value={this.state.text} rows="6"/>
-          <button onClick={this.onClear}>clear</button>
-          <button onClick={this.onCopy}>copy</button>
-        </div>
-        <h3>Letters: </h3>
-        <p ref="letterCount">{letterCount}</p>
-        <h3>Words: </h3>
-        <p ref="wordCount">{wordCount}</p>
-        <h2>Presets</h2>
-        <button onClick={this.insertLorem.bind(this, 16)}>16 char</button>
-        <button onClick={this.insertLorem.bind(this, 24)}>24 char</button>
-        <button onClick={this.insertLorem.bind(this, 32)}>32 char</button>
-        <button onClick={this.insertLorem.bind(this, 48)}>48 char</button>
-        <button onClick={this.insertLorem.bind(this, 64)}>64 char</button>
-        <button onClick={this.insertLorem.bind(this, 95)}>95 char</button>
-        <button onClick={this.insertLorem.bind(this, 128)}>128 char</button>
-        <button onClick={this.insertLorem.bind(this, 192)}>192 char</button>
-        <button onClick={this.insertLorem.bind(this, 256)}>256 char</button>
-        <button onClick={this.insertLorem.bind(this, 512)}>512 char</button>
       </main>
     );
   }
