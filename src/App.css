@@ -39,24 +39,22 @@ body {
 }
 main {
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   height: 100vh;
 }
-.leftContainer {
-  width: 50%;
-  height: 100vh;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: var(--neu01);
-}
+.leftContainer,
 .rightContainer {
   width: 50%;
   height: 100vh;
   z-index: 1;
   position: absolute;
   top: 0;
+}
+.leftContainer {
+  background-color: var(--neu01);
+  left: 0;
+}
+.rightContainer {
   right: 0;
   background-image: linear-gradient(147deg, var(--primaryColor), var(--secondaryColor));
 }
@@ -66,8 +64,11 @@ main {
   max-width: 1000px;
   margin: 0 auto;
 }
-.logo {
+.logoC {
   max-width: 120px;
+}
+.logoS {
+  display: none;
 }
 .textarea {
   top: 100px;
@@ -165,6 +166,7 @@ textarea {
   width: 150px;
   position: absolute;
   bottom: 200px;
+  display: inline-block;
 }
 .letters {
   right: 170px;
@@ -178,4 +180,70 @@ textarea {
   color: var(--neu01);
   margin: 0;
   font-weight: bold;
+}
+@media only screen and (max-width: 768px) {
+  main {
+    height: auto;
+  }
+  .leftContainer,
+  .rightContainer {
+    width: 100%;
+    height: 100%;
+  }
+  .logo {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .logoS {
+    display: inline-block;
+    max-width: 50px;
+  }
+  .logoC {
+    display: none;
+  }
+  .about,
+  .presets,
+  .letters,
+  .words {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .textarea {
+    max-width: none;
+    top: 0;
+  }
+  .letters,
+  .words {
+    margin: 20px 0;
+    width: 50%;
+  }
+  .presets {
+    max-width: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .presets h2 {
+    flex: 1 1 100%;
+  }
+  .presets button {
+    margin: 7px;
+  }
+  .presets button:nth-child(2n) {
+    margin-right: 7px;
+  }
+  .about {
+    background-color: var(--neu01);
+    max-width: none;
+    padding: 30px;
+    margin-top: 20px;
+    width: calc(100% + 40px);
+    left: -20px;
+    top: 20px;
+    text-align: left;
+  }
 }

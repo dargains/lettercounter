@@ -53,16 +53,22 @@ class App extends Component {
         <div className="leftContainer"></div>
         <div className="rightContainer"></div>
         <div className="wrapper">
-          <img className="logo" src={logoC} alt="lettercounter"/>
-          <div className="about">
-            <h1 className="title">Letter Counter</h1>
-            <p className="aboutText">Developed by Dargains, Foan82 & Vilaça</p>
-            <p className="aboutText">just to make your day better</p>
+          <div className="logo">
+            <img className="logoS" src={logoS} alt="lettercounter"/>
+            <img className="logoC" src={logoC} alt="lettercounter"/>
           </div>
           <div className="textarea">
             <textarea ref="textarea" onChange={this.onChange} onDoubleClick={this.onClear} value={this.state.text}/>
             <button onClick={this.onClear}><img src={bin} alt="clear" /></button>
             <button onClick={this.onCopy}>copy</button>
+          </div>
+          <div className="letters">
+            <h2>Letters: </h2>
+            <p ref="letterCount">{letterCount}</p>
+          </div>
+          <div className="words">
+            <h2>Words: </h2>
+            <p ref="wordCount">{wordCount}</p>
           </div>
           <div className="presets">
             <h2>Presets</h2>
@@ -77,13 +83,10 @@ class App extends Component {
             <button onClick={this.insertLorem.bind(this, 256)}>256</button>
             <button onClick={this.insertLorem.bind(this, 512)}>512</button>
           </div>
-          <div className="letters">
-            <h2>Letters: </h2>
-            <p ref="letterCount">{letterCount}</p>
-          </div>
-          <div className="words">
-            <h2>Words: </h2>
-            <p ref="wordCount">{wordCount}</p>
+          <div className="about">
+            <h1 className="title">Letter Counter</h1>
+            <p className="aboutText">Developed by Dargains, Foan82 & Vilaça</p>
+            <p className="aboutText">just to make your day better</p>
           </div>
         </div>
       </main>
