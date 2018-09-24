@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import bin from './img/bin.svg';
-import logoS from './img/logoSimple.png';
-import logoC from './img/logo.png';
+import logoD from './img/logo.png';
+import logoM from './img/logoWhite.png';
 
 class App extends Component {
 
@@ -54,11 +54,12 @@ class App extends Component {
         <div className="rightContainer"></div>
         <div className="wrapper">
           <div className="logo">
-            <img className="logoS" src={logoS} alt="lettercounter"/>
-            <img className="logoC" src={logoC} alt="lettercounter"/>
+            <img className="logoD" src={logoD} alt="lettercounter"/>
+            <img className="logoM" src={logoM} alt="lettercounter"/>
           </div>
           <div className="textarea">
-            <textarea ref="textarea" onChange={this.onChange} onDoubleClick={this.onClear} value={this.state.text}/>
+            <label htmlFor="textarea"></label>
+            <textarea id="textarea" ref="textarea" onChange={this.onChange} value={this.state.text}/>
             <button onClick={this.onClear}><img src={bin} alt="clear" /></button>
             <button onClick={this.onCopy}>copy</button>
           </div>
@@ -85,8 +86,7 @@ class App extends Component {
           </div>
           <div className="about">
             <h1 className="title">Letter Counter</h1>
-            <p className="aboutText">Developed by Dargains, Foan82 & Vilaça</p>
-            <p className="aboutText">just to make your day better</p>
+            <p className="aboutText">Developed by Dargains, Foan82 & Vilaça just to make your day better</p>
           </div>
         </div>
       </main>

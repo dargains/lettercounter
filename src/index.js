@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('./service-worker.js')
+    .then(function() { console.log('Service Worker v1.02 Registered'); });
+}
