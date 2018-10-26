@@ -1,4 +1,4 @@
-var cacheName = 'lettercounter v1.02';
+var cacheName = 'lettercounter v1.03';
 var filesToCache = [
   '/',
   '/index.html',

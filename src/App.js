@@ -73,16 +73,66 @@ class App extends Component {
           </div>
           <div className="presets">
             <h2>Presets</h2>
-            <button onClick={this.insertLorem.bind(this, 16)}>16</button>
-            <button onClick={this.insertLorem.bind(this, 24)}>24</button>
-            <button onClick={this.insertLorem.bind(this, 32)}>32</button>
-            <button onClick={this.insertLorem.bind(this, 48)}>48</button>
-            <button onClick={this.insertLorem.bind(this, 64)}>64</button>
-            <button onClick={this.insertLorem.bind(this, 95)}>95</button>
-            <button onClick={this.insertLorem.bind(this, 128)}>128</button>
-            <button onClick={this.insertLorem.bind(this, 192)}>192</button>
-            <button onClick={this.insertLorem.bind(this, 256)}>256</button>
-            <button onClick={this.insertLorem.bind(this, 512)}>512</button>
+            <div className="flip-container" onClick={this.insertLorem.bind(this, 16)}>
+            	<div className="flipper">
+            		<div className="front">2</div>
+            		<div className="back">16</div>
+            	</div>
+            </div>
+            <div className="flip-container" onClick={this.insertLorem.bind(this, 24)}>
+              <div className="flipper">
+                <div className="front">3</div>
+                <div className="back">24</div>
+              </div>
+            </div>
+            <div className="flip-container" onClick={this.insertLorem.bind(this, 32)}>
+              <div className="flipper">
+                <div className="front">4</div>
+                <div className="back">32</div>
+              </div>
+            </div>
+            <div className="flip-container" onClick={this.insertLorem.bind(this, 48)}>
+              <div className="flipper">
+                <div className="front">6</div>
+                <div className="back">48</div>
+              </div>
+            </div>
+            <div className="flip-container" onClick={this.insertLorem.bind(this, 64)}>
+              <div className="flipper">
+                <div className="front">8</div>
+                <div className="back">64</div>
+              </div>
+            </div>
+            <div className="flip-container" onClick={this.insertLorem.bind(this, 95)}>
+              <div className="flipper">
+                <div className="front">12</div>
+                <div className="back">95</div>
+              </div>
+            </div>
+            <div className="flip-container" onClick={this.insertLorem.bind(this, 128)}>
+              <div className="flipper">
+                <div className="front">128</div>
+                <div className="back">16</div>
+              </div>
+            </div>
+            <div className="flip-container" onClick={this.insertLorem.bind(this, 192)}>
+              <div className="flipper">
+                <div className="front">24</div>
+                <div className="back">192</div>
+              </div>
+            </div>
+            <div className="flip-container" onClick={this.insertLorem.bind(this, 256)}>
+              <div className="flipper">
+                <div className="front">32</div>
+                <div className="back">256</div>
+              </div>
+            </div>
+            <div className="flip-container" onClick={this.insertLorem.bind(this, 512)}>
+              <div className="flipper">
+                <div className="front">64</div>
+                <div className="back">512</div>
+              </div>
+            </div>
           </div>
           <div className="about">
             <h1 className="title">Letter Counter</h1>

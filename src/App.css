@@ -98,6 +98,7 @@ main {
   position: absolute;
   bottom: 0;
   border: 0;
+  margin: 0;
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
@@ -114,7 +115,7 @@ main {
   background-color: var(--primaryColor);
   color: var(--neu01);
   width: 120px;
-  line-height: 90px;
+  line-height: 92px;
 }
 textarea {
   width: 100%;
@@ -189,6 +190,66 @@ textarea {
   margin: 0;
   font-weight: bold;
 }
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+  margin-top: 20px;
+  display: inline-block;
+}
+.flip-container:nth-child(2n) {
+  margin-right: 20px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+  width: 50px;
+  height: 50px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid var(--neu01);
+  color: var(--neu01);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+  opacity: .6;
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+  background-color: var(--neu01);
+  color: var(--primaryColor);
+  opacity: 1;
+}
 @media only screen and (max-width: 768px) {
   main {
     height: auto;
@@ -241,7 +302,13 @@ textarea {
   .presets button {
     margin: 7px;
   }
+  .flip-container {
+    margin: 7px;
+  }
   .presets button:nth-child(2n) {
+    margin-right: 7px;
+  }
+  .flip-container:nth-child(2n) {
     margin-right: 7px;
   }
   .about {
