@@ -193,7 +193,7 @@ textarea {
 /* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000px;
-  margin-top: 20px;
+  margin-top: 17px;
   display: inline-block;
 }
 .flip-container:nth-child(2n) {

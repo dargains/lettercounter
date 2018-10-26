@@ -3,6 +3,7 @@ import './App.css';
 import bin from './img/bin.svg';
 import logoD from './img/logo.png';
 import logoM from './img/logoWhite.png';
+import FlipButton from './FlipButton';
 
 class App extends Component {
 
@@ -18,17 +19,19 @@ class App extends Component {
     this.updateCounts = this.updateCounts.bind(this);
     this.onCopy = this.onCopy.bind(this);
     this.onClear = this.onClear.bind(this);
+    this.insertLorem = this.insertLorem.bind(this);
   }
   onChange(event) {
     this.setState({text: this.refs.textarea.value}, this.updateCounts);
   }
   updateCounts() {
-    const letters = this.state.text.length;
-    const words = this.state.text ? this.state.text.split(" ").length : 0;
+    const letters = this.state.text.replace(/\s/g, "").length;
+    const words = this.state.text.replace(/(^\s*)|(\s*$)/gi,"").replace(/[ ]{2,}/gi," ").replace(/\n /,"\n").split(' ').length;
     this.setState({letters,words});
   }
-  insertLorem(size) {
+  insertLorem(event) {
     const lorem = this.state.lorem;
+    const size = event.currentTarget.dataset.letters;
     const newText = lorem.substring(0, size);
     this.setState({
       text: newText
@@ -57,12 +60,12 @@ class App extends Component {
             <img className="logoD" src={logoD} alt="lettercounter"/>
             <img className="logoM" src={logoM} alt="lettercounter"/>
           </div>
-          <div className="textarea">
+          <form className="textarea" onSubmit={e => e.preventDefault()}>
             <label htmlFor="textarea"></label>
             <textarea id="textarea" ref="textarea" onChange={this.onChange} value={this.state.text}/>
             <button onClick={this.onClear}><img src={bin} alt="clear" /></button>
             <button onClick={this.onCopy}>copy</button>
-          </div>
+          </form>
           <div className="letters">
             <h2>Letters: </h2>
             <p ref="letterCount">{letterCount}</p>
@@ -73,66 +76,16 @@ class App extends Component {
           </div>
           <div className="presets">
             <h2>Presets</h2>
-            <div className="flip-container" onClick={this.insertLorem.bind(this, 16)}>
-            	<div className="flipper">
-            		<div className="front">2</div>
-            		<div className="back">16</div>
-            	</div>
-            </div>
-            <div className="flip-container" onClick={this.insertLorem.bind(this, 24)}>
-              <div className="flipper">
-                <div className="front">3</div>
-                <div className="back">24</div>
-              </div>
-            </div>
-            <div className="flip-container" onClick={this.insertLorem.bind(this, 32)}>
-              <div className="flipper">
-                <div className="front">4</div>
-                <div className="back">32</div>
-              </div>
-            </div>
-            <div className="flip-container" onClick={this.insertLorem.bind(this, 48)}>
-              <div className="flipper">
-                <div className="front">6</div>
-                <div className="back">48</div>
-              </div>
-            </div>
-            <div className="flip-container" onClick={this.insertLorem.bind(this, 64)}>
-              <div className="flipper">
-                <div className="front">8</div>
-                <div className="back">64</div>
-              </div>
-            </div>
-            <div className="flip-container" onClick={this.insertLorem.bind(this, 95)}>
-              <div className="flipper">
-                <div className="front">12</div>
-                <div className="back">95</div>
-              </div>
-            </div>
-            <div className="flip-container" onClick={this.insertLorem.bind(this, 128)}>
-              <div className="flipper">
-                <div className="front">128</div>
-                <div className="back">16</div>
-              </div>
-            </div>
-            <div className="flip-container" onClick={this.insertLorem.bind(this, 192)}>
-              <div className="flipper">
-                <div className="front">24</div>
-                <div className="back">192</div>
-              </div>
-            </div>
-            <div className="flip-container" onClick={this.insertLorem.bind(this, 256)}>
-              <div className="flipper">
-                <div className="front">32</div>
-                <div className="back">256</div>
-              </div>
-            </div>
-            <div className="flip-container" onClick={this.insertLorem.bind(this, 512)}>
-              <div className="flipper">
-                <div className="front">64</div>
-                <div className="back">512</div>
-              </div>
-            </div>
+            <FlipButton preset="2" letters="16" handleClick={this.insertLorem} />
+            <FlipButton preset="3" letters="24" handleClick={this.insertLorem} />
+            <FlipButton preset="4" letters="32" handleClick={this.insertLorem} />
+            <FlipButton preset="6" letters="48" handleClick={this.insertLorem} />
+            <FlipButton preset="8" letters="64" handleClick={this.insertLorem} />
+            <FlipButton preset="12" letters="95" handleClick={this.insertLorem} />
+            <FlipButton preset="16" letters="128" handleClick={this.insertLorem} />
+            <FlipButton preset="24" letters="192" handleClick={this.insertLorem} />
+            <FlipButton preset="32" letters="256" handleClick={this.insertLorem} />
+            <FlipButton preset="64" letters="512" handleClick={this.insertLorem} />
           </div>
           <div className="about">
             <h1 className="title">Letter Counter</h1>
