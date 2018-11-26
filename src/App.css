@@ -117,6 +117,16 @@ main {
   width: 120px;
   line-height: 92px;
 }
+@supports (-webkit-overflow-scrolling: touch) {
+  .textarea button:first-of-type {
+    right: 0;
+
+  }
+  .textarea button:last-of-type {
+    display: none;
+  }
+}
+
 textarea {
   width: 100%;
   padding: 10px;
@@ -330,4 +340,13 @@ textarea {
     top: 20px;
     text-align: left;
   }
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neu04);
 }
