@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import bin from './img/bin.svg';
-import logoD from './img/logo.png';
+// import logoD from './img/logo.png';
 import logoM from './img/logoWhite.png';
 import FlipButton from './FlipButton';
 
