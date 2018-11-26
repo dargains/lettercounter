@@ -25,8 +25,15 @@ class App extends Component {
     this.setState({text: this.refs.textarea.value}, this.updateCounts);
   }
   updateCounts() {
-    const letters = this.state.text.replace(/\s/g, "").length;
-    const words = this.state.text.replace(/(^\s*)|(\s*$)/gi,"").replace(/[ ]{2,}/gi," ").replace(/\n /,"\n").split(' ').length;
+    const regex = /\s+/gi;
+    const value = this.state.text;
+    const words = value.trim() ? value.trim().replace(regex, ' ').split(' ').length : '0';
+    const letters = value.trim().length;
+
+    const buttonsList = Array.prototype.slice.call(document.querySelectorAll('[data-letters]'));
+    buttonsList.forEach(item => item.classList.remove('selected'))
+    if (letters) buttonsList.find(item => parseInt(item.dataset.letters) >= letters).classList.add('selected');
+
     this.setState({letters,words});
   }
   insertLorem(event) {
@@ -38,7 +45,14 @@ class App extends Component {
     },this.updateCounts);
   }
   onCopy() {
-    this.refs.textarea.select();
+    const range = document.createRange();
+    const textarea = this.refs.textarea
+    range.selectNodeContents(textarea);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(range);
+    textarea.setSelectionRange(0, 999999);
+    textarea.select();
     document.execCommand("copy");
   }
   onClear() {
@@ -47,6 +61,8 @@ class App extends Component {
       letters: 0,
       words: 0
     });
+    const buttonsList = Array.prototype.slice.call(document.querySelectorAll('[data-letters]'));
+    buttonsList.forEach(item => item.classList.remove('selected'))
   }
   render() {
     const letterCount = this.state.letters;
@@ -60,12 +76,12 @@ class App extends Component {
             <img className="logoD" src={logoD} alt="lettercounter"/>
             <img className="logoM" src={logoM} alt="lettercounter"/>
           </div>
-          <form className="textarea" onSubmit={e => e.preventDefault()}>
+          <div className="textarea">
             <label htmlFor="textarea"></label>
-            <textarea id="textarea" ref="textarea" onChange={this.onChange} value={this.state.text}/>
+            <textarea id="textarea" ref="textarea" onChange={this.onChange} value={this.state.text} readOnly="false" contentEditable="true"/>
             <button onClick={this.onClear}><img src={bin} alt="clear" /></button>
             <button onClick={this.onCopy}>copy</button>
-          </form>
+          </div>
           <div className="letters">
             <h2>Letters: </h2>
             <p ref="letterCount">{letterCount}</p>

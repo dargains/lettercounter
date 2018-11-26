@@ -199,14 +199,20 @@ textarea {
 .flip-container:nth-child(2n) {
   margin-right: 20px;
 }
-	/* flip the pane when hovered */
-	.flip-container:hover .flipper, .flip-container.hover .flipper {
-		transform: rotateY(180deg);
-	}
+/* flip the pane when hovered */
+.flip-container:hover .flipper {
+	transform: rotateY(180deg);
+}
 
 .flip-container, .front, .back {
   width: 50px;
   height: 50px;
+}
+
+.flip-container.selected .front {
+  background-color: var(--neu01);
+  color: var(--primaryColor);
+  opacity: 1;
 }
 
 /* flip speed goes here */
@@ -248,7 +254,7 @@ textarea {
 	transform: rotateY(180deg);
   background-color: var(--neu01);
   color: var(--primaryColor);
-  opacity: 1;
+  opacity: .8;
 }
 @media only screen and (max-width: 768px) {
   main {
@@ -304,6 +310,9 @@ textarea {
   }
   .flip-container {
     margin: 7px;
+  }
+  .flip-container:hover .flipper {
+  	transform: rotateY(0);
   }
   .presets button:nth-child(2n) {
     margin-right: 7px;
