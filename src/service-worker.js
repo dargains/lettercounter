@@ -1,4 +1,4 @@
-var cacheName = 'lettercounter v1.11';
+var cacheName = 'lettercounter v1.15';
 var filesToCache = [
   '/',
   '/index.html',
@@ -8,6 +8,7 @@ var filesToCache = [
   '/static/css/main.css.map',
   '/static/js/main.js',
   '/static/js/main.js.map',
+  '/static/media/share.png',
   '/static/media/logo.png',
   '/static/media/logoWhite.png',
   '/static/media/logoSimple.png',

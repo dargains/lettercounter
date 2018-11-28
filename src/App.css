@@ -266,6 +266,21 @@ textarea {
   color: var(--primaryColor);
   opacity: .8;
 }
+@media only screen and (max-height: 700px) {
+  .textarea {
+    top: 30px;
+  }
+  .letters,.words,.about {
+    top: 470px;
+  }
+  .presets {
+    top: 50px;
+  }
+  .leftContainer,
+  .rightContainer {
+    height: 110vh;
+  }
+}
 @media only screen and (max-width: 768px) {
   main {
     height: auto;
