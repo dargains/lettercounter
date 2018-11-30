@@ -290,11 +290,16 @@ textarea {
 @media only screen and (max-width: 768px) {
   main {
     height: auto;
+    padding-bottom: 0;
+    background-image: linear-gradient(147deg, var(--primaryColor), var(--secondaryColor));
   }
-  .leftContainer,
-  .rightContainer {
-    width: 100%;
-    height: 100%;
+  .wrapper {
+    height: auto;
+    max-height: none;
+  }
+  .rightContainer,
+  .leftContainer {
+    display: none;
   }
   .logo {
     margin-bottom: 20px;
@@ -332,6 +337,7 @@ textarea {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 20px;
   }
   .presets h2 {
     flex: 1 1 100%;
@@ -354,11 +360,11 @@ textarea {
   .about {
     background-color: var(--neu01);
     max-width: none;
-    padding: 30px;
-    margin-top: 20px;
+    padding: 20px 30px;
+    /* margin-top: 20px; */
     width: calc(100% + 40px);
     left: -20px;
-    top: 20px;
+    /* top: 20px; */
     text-align: left;
   }
 }
